@@ -388,8 +388,9 @@ async def process_callback_kb1btn1(call: types.CallbackQuery):
             key = Keys.get_key()
             print(key)
             Orders.get_params(price, key, call.message.chat.id)
-            await call.message.answer(f'*💳 Оплата заказа\n\n💰 Сумма к оплате: {price}р\n\nВНИМАНИЕ В КОММЕНТАРИЙ К ПЕРЕВОДУ УКАЖИТЕ {key}\nИначе ваш платёж не будет замечен*\n\n{key}', parse_mode='Markdown',
+            await call.message.answer(f'*💳 Оплата заказа\n\n💰 Сумма к оплате: {price}р\n\nВНИМАНИЕ В КОММЕНТАРИЙ К ПЕРЕВОДУ УКАЖИТЕ {key}\nИначе ваш платёж не будет замечен*', parse_mode='Markdown',
                                       reply_markup=mrk)
+            await call.message.answer(key)
         else:
             await call.message.answer('*Ваша корзина пуста*', parse_mode='Markdown')
 
