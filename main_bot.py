@@ -97,7 +97,7 @@ async def mailing(message: types.Message):
             secc = 0
             for user in Members.get_members():
                 try:
-                    await bot.send_message(user[1], ' '.join(message.text.split()[1:]))
+                    await bot.send_message(user[1], ' '.join(message.text.split()[1:]), parse_mode="Markdown")
                     secc+=1
                 except:
                    erors+=1
